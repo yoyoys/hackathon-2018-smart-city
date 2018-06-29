@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 
-import DefaultLayout from '@/layouts/default/Index.vue'
+import DefaultLayout from '@/layouts/backend/Index.vue'
 
 Vue.use(Router)
 
