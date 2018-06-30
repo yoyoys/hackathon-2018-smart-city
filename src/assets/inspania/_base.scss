@@ -12,8 +12,8 @@ html, body {
 
 }
 
-.full-height-layout #wrapper,
-.full-height-layout #page-wrapper {
+body.full-height-layout #wrapper,
+body.full-height-layout #page-wrapper {
   height: 100%;
 }
 
@@ -21,11 +21,11 @@ html, body {
   min-height: auto;
 }
 
-.boxed-layout {
+body.boxed-layout {
   background: $boxed-background;
 }
 
-.boxed-layout #wrapper {
+body.boxed-layout #wrapper {
   background-color: $nav-bg;
   max-width: $boxed-width;
   margin: 0 auto;
@@ -274,21 +274,21 @@ ul.unstyled, ol.unstyled {
   margin-left: $sidebar-width;
 }
 
-.mini-navbar .footer.fixed,
-.body-small.mini-navbar .footer.fixed {
+body.mini-navbar .footer.fixed,
+body.body-small.mini-navbar .footer.fixed {
   margin: 0 0 0 70px;
 }
 
-.mini-navbar.canvas-menu .footer.fixed,
-.canvas-menu .footer.fixed {
+body.mini-navbar.canvas-menu .footer.fixed,
+body.canvas-menu .footer.fixed {
   margin: 0 !important;
 }
 
-.fixed-sidebar.body-small.mini-navbar .footer.fixed {
+body.fixed-sidebar.body-small.mini-navbar .footer.fixed {
   margin: 0 0 0 $sidebar-width;
 }
 
-.body-small .footer.fixed {
+body.body-small .footer.fixed {
   margin-left: 0;
 }
 
@@ -493,7 +493,7 @@ ul.unstyled, ol.unstyled {
 
 }
 
-.mini-navbar .branding {
+body.mini-navbar .branding {
   display: none;
 }
 
@@ -1436,7 +1436,7 @@ a.close-canvas-menu:hover {
   animation: none;
 }
 
-.fullscreen-ibox-mode {
+body.fullscreen-ibox-mode {
   overflow-y: hidden;
 }
 
@@ -1461,33 +1461,33 @@ a.close-canvas-menu:hover {
 
 // Bootstrap issue in 3.3.0 with modal https://github.com/twbs/bootstrap/issues/9855
 // Fix
-.modal-open {
+body.modal-open {
   padding-right: inherit !important;
 }
 
 // Fix modal in Safari browser
-_::-webkit-full-page-media, _:future, :root .modal-open .wrapper-content.animated {
+_::-webkit-full-page-media, _:future, :root body.modal-open .wrapper-content.animated {
   -webkit-animation: none;
   -ms-animation-nam: none;
   animation: none;
 }
 
 // Fix for modal backdrop with animate.css
-.modal-open .animated {
+body.modal-open .animated {
   animation-fill-mode: initial;
   z-index: inherit
 }
 
 /* Show profile dropdown on fixed sidebar */
-.mini-navbar.fixed-sidebar .profile-element, .block {
+body.mini-navbar.fixed-sidebar .profile-element, .block {
   display: block !important;
 }
 
-.mini-navbar.fixed-sidebar .nav-header {
+body.mini-navbar.fixed-sidebar .nav-header {
   padding: 33px 25px;
 }
 
-.mini-navbar.fixed-sidebar .logo-element {
+body.mini-navbar.fixed-sidebar .logo-element {
   display: none;
 }
 

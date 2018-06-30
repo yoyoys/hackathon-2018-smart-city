@@ -1,5 +1,4 @@
 <template>
-<div class="skin-1" :class="{'mini-navbar': miniNavbar}">
   <div id="wrapper">
     <SidbarNav/>
       <div id="page-wrapper" class="gray-bg">
@@ -10,7 +9,6 @@
         <FooterContent/>
       </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
@@ -22,7 +20,6 @@ import TopNavbar from './TopNavbar.vue'
 export default Vue.extend({
   data () {
     return {
-      miniNavbar: false
     }
   },
   components: {
@@ -32,9 +29,16 @@ export default Vue.extend({
   },
   methods: {
     navToggle () {
-      this.miniNavbar = !this.miniNavbar
+      document.body.classList.toggle('mini-navbar')
     }
+  },
+  created () {
+    document.body.classList.add('skin-1')
+  },
+  destroyed () {
+    document.body.classList.remove('skin-1')
   }
+
 })
 </script>
 <style lang="scss" src="@/assets/inspania/style.scss"></style>

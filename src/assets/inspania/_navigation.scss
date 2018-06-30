@@ -329,7 +329,7 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav li:hover > .nav-seco
   height: auto;
 }
 
-.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
+body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   font-size: 12px;
   border-radius: 3px;
 }
@@ -447,36 +447,36 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav li:hover > .nav-seco
   border: none;
 }
 
-.fixed-nav #wrapper .navbar-static-side,
-.fixed-nav #wrapper #page-wrapper {
+body.fixed-nav #wrapper .navbar-static-side,
+body.fixed-nav #wrapper #page-wrapper {
   margin-top: 60px;
 }
 
-.top-navigation.fixed-nav #wrapper #page-wrapper {
+body.top-navigation.fixed-nav #wrapper #page-wrapper {
   margin-top: 0;
 }
 
-.fixed-nav.fixed-nav-basic .navbar-fixed-top {
+body.fixed-nav.fixed-nav-basic .navbar-fixed-top {
   left: $sidebar-width;
 }
 
-.fixed-nav.fixed-nav-basic.mini-navbar .navbar-fixed-top {
+body.fixed-nav.fixed-nav-basic.mini-navbar .navbar-fixed-top {
   left: 70px;
 }
 
-.fixed-nav.fixed-nav-basic.fixed-sidebar.mini-navbar .navbar-fixed-top {
+body.fixed-nav.fixed-nav-basic.fixed-sidebar.mini-navbar .navbar-fixed-top {
   left: 0;
 }
 
-.fixed-nav.fixed-nav-basic #wrapper .navbar-static-side {
+body.fixed-nav.fixed-nav-basic #wrapper .navbar-static-side {
   margin-top: 0;
 }
 
-.fixed-nav.fixed-nav-basic.body-small .navbar-fixed-top {
+body.fixed-nav.fixed-nav-basic.body-small .navbar-fixed-top {
   left: 0;
 }
 
-.fixed-nav.fixed-nav-basic.fixed-sidebar.mini-navbar.body-small .navbar-fixed-top {
+body.fixed-nav.fixed-nav-basic.fixed-sidebar.mini-navbar.body-small .navbar-fixed-top {
   left: $sidebar-width;
 }
 
@@ -488,15 +488,15 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav li:hover > .nav-seco
   margin-left: 0;
 }
 
-.mini-navbar .navbar-static-side {
+body.mini-navbar .navbar-static-side {
   width: 70px;
 }
 
-.mini-navbar .profile-element, .mini-navbar .nav-label, .mini-navbar .navbar-default .nav li a span {
+body.mini-navbar .profile-element, body.mini-navbar .nav-label, body.mini-navbar .navbar-default .nav li a span {
   display: none;
 }
 
-.canvas-menu .profile-element {
+body.canvas-menu .profile-element {
   display: block;
 }
 
@@ -504,62 +504,62 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav-second-level {
   display: none;
 }
 
-.mini-navbar .navbar-default .nav > li > a {
+body.mini-navbar .navbar-default .nav > li > a {
   font-size: 16px;
 }
 
-.mini-navbar .logo-element {
+body.mini-navbar .logo-element {
   display: block;
 }
 
-.canvas-menu .logo-element {
+body.canvas-menu .logo-element {
   display: none;
 }
 
-.mini-navbar nav .nav-header {
+body.mini-navbar .nav-header {
   padding: 0;
   background-color: $navy;
 }
 
-.canvas-menu .nav-header {
+body.canvas-menu .nav-header {
   padding: 33px 25px;
 }
 
-.mini-navbar #page-wrapper {
+body.mini-navbar #page-wrapper {
   margin: 0 0 0 70px;
 }
 
-.fixed-sidebar.mini-navbar .footer,
-.canvas-menu.mini-navbar .footer {
+body.fixed-sidebar.mini-navbar .footer,
+body.canvas-menu.mini-navbar .footer {
   margin: 0 0 0 0 !important;
 }
 
-.canvas-menu.mini-navbar #page-wrapper,
-.canvas-menu.mini-navbar .footer {
+body.canvas-menu.mini-navbar #page-wrapper,
+body.canvas-menu.mini-navbar .footer {
   margin: 0 0 0 0;
 }
 
-.fixed-sidebar .navbar-static-side,
-.canvas-menu .navbar-static-side {
+body.fixed-sidebar .navbar-static-side,
+body.canvas-menu .navbar-static-side {
   position: fixed;
   width: $sidebar-width;
   z-index: 2001;
   height: 100%;
 }
 
-.fixed-sidebar.mini-navbar .navbar-static-side {
+body.fixed-sidebar.mini-navbar .navbar-static-side {
   width: 0;
 }
 
-.fixed-sidebar.mini-navbar #page-wrapper {
+body.fixed-sidebar.mini-navbar #page-wrapper {
   margin: 0 0 0 0;
 }
 
-.body-small.fixed-sidebar.mini-navbar #page-wrapper {
+body.body-small.fixed-sidebar.mini-navbar #page-wrapper {
   margin: 0 0 0 $sidebar-width;
 }
 
-.body-small.fixed-sidebar.mini-navbar .navbar-static-side {
+body.body-small.fixed-sidebar.mini-navbar .navbar-static-side {
   width: $sidebar-width;
 }
 
@@ -569,12 +569,12 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav-second-level {
   height: auto;
 }
 
-.fixed-sidebar.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
+body.fixed-sidebar.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   font-size: 12px;
   border-radius: 3px;
 }
 
-.canvas-menu.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
+body.canvas-menu.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   font-size: 13px;
   border-radius: 3px;
 }
@@ -596,19 +596,19 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav-second-level {
   left: 0
 }
 
-.fixed-sidebar.mini-navbar .navbar-default .nav > li > a,
-.canvas-menu.mini-navbar .navbar-default .nav > li > a {
+body.fixed-sidebar.mini-navbar .navbar-default .nav > li > a,
+body.canvas-menu.mini-navbar .navbar-default .nav > li > a {
   font-size: 13px;
 }
 
-.fixed-sidebar.mini-navbar .nav-label,
-.fixed-sidebar.mini-navbar .navbar-default .nav li a span,
-.canvas-menu.mini-navbar .nav-label,
-.canvas-menu.mini-navbar .navbar-default .nav li a span {
+body.fixed-sidebar.mini-navbar .nav-label,
+body.fixed-sidebar.mini-navbar .navbar-default .nav li a span,
+body.canvas-menu.mini-navbar .nav-label,
+body.canvas-menu.mini-navbar .navbar-default .nav li a span {
   display: inline;
 }
 
-.canvas-menu.mini-navbar .navbar-default .nav li .profile-element a span {
+body.canvas-menu.mini-navbar .navbar-default .nav li .profile-element a span {
   display: block;
 }
 
@@ -622,7 +622,7 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav-second-level {
   left: 0
 }
 
-.canvas-menu nav.navbar-static-side {
+body.canvas-menu nav.navbar-static-side {
   z-index: 2001;
   background: $nav-bg;
   height: 100%;
@@ -630,7 +630,7 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav-second-level {
   display: none;
 }
 
-.canvas-menu.mini-navbar nav.navbar-static-side {
+body.canvas-menu.mini-navbar nav.navbar-static-side {
   display: block;
   width: $sidebar-width;
 }
