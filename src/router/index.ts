@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 
 import DefaultLayout from '@/layouts/backend/Index.vue'
+import EmptyLayout from '@/layouts/empty/Index.vue'
 
 Vue.use(Router)
 
@@ -11,15 +12,21 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: DefaultLayout,
+      component: EmptyLayout,
       children: [
         {
           path: '/',
           name: 'home',
           component: Home
-        },
+        }
+      ]
+    },
+    {
+      path: '/admin',
+      component: DefaultLayout,
+      children: [
         {
-          path: '/about',
+          path: '/',
           name: 'about',
           component: About
         }
