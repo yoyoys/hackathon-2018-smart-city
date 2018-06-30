@@ -12,8 +12,8 @@ html, body {
 
 }
 
-body.full-height-layout #wrapper,
-body.full-height-layout #page-wrapper {
+.full-height-layout #wrapper,
+.full-height-layout #page-wrapper {
   height: 100%;
 }
 
@@ -21,11 +21,11 @@ body.full-height-layout #page-wrapper {
   min-height: auto;
 }
 
-body.boxed-layout {
+.boxed-layout {
   background: $boxed-background;
 }
 
-body.boxed-layout #wrapper {
+.boxed-layout #wrapper {
   background-color: $nav-bg;
   max-width: $boxed-width;
   margin: 0 auto;
@@ -274,21 +274,21 @@ ul.unstyled, ol.unstyled {
   margin-left: $sidebar-width;
 }
 
-body.mini-navbar .footer.fixed,
-body.body-small.mini-navbar .footer.fixed {
+.mini-navbar .footer.fixed,
+.body-small.mini-navbar .footer.fixed {
   margin: 0 0 0 70px;
 }
 
-body.mini-navbar.canvas-menu .footer.fixed,
-body.canvas-menu .footer.fixed {
+.mini-navbar.canvas-menu .footer.fixed,
+.canvas-menu .footer.fixed {
   margin: 0 !important;
 }
 
-body.fixed-sidebar.body-small.mini-navbar .footer.fixed {
+.fixed-sidebar.body-small.mini-navbar .footer.fixed {
   margin: 0 0 0 $sidebar-width;
 }
 
-body.body-small .footer.fixed {
+.body-small .footer.fixed {
   margin-left: 0;
 }
 
@@ -493,7 +493,7 @@ body.body-small .footer.fixed {
 
 }
 
-body.mini-navbar .branding {
+.mini-navbar .branding {
   display: none;
 }
 
@@ -1436,7 +1436,7 @@ a.close-canvas-menu:hover {
   animation: none;
 }
 
-body.fullscreen-ibox-mode {
+.fullscreen-ibox-mode {
   overflow-y: hidden;
 }
 
@@ -1461,33 +1461,33 @@ body.fullscreen-ibox-mode {
 
 // Bootstrap issue in 3.3.0 with modal https://github.com/twbs/bootstrap/issues/9855
 // Fix
-body.modal-open {
+.modal-open {
   padding-right: inherit !important;
 }
 
 // Fix modal in Safari browser
-_::-webkit-full-page-media, _:future, :root body.modal-open .wrapper-content.animated {
+_::-webkit-full-page-media, _:future, :root .modal-open .wrapper-content.animated {
   -webkit-animation: none;
   -ms-animation-nam: none;
   animation: none;
 }
 
 // Fix for modal backdrop with animate.css
-body.modal-open .animated {
+.modal-open .animated {
   animation-fill-mode: initial;
   z-index: inherit
 }
 
 /* Show profile dropdown on fixed sidebar */
-body.mini-navbar.fixed-sidebar .profile-element, .block {
+.mini-navbar.fixed-sidebar .profile-element, .block {
   display: block !important;
 }
 
-body.mini-navbar.fixed-sidebar .nav-header {
+.mini-navbar.fixed-sidebar .nav-header {
   padding: 33px 25px;
 }
 
-body.mini-navbar.fixed-sidebar .logo-element {
+.mini-navbar.fixed-sidebar .logo-element {
   display: none;
 }
 
