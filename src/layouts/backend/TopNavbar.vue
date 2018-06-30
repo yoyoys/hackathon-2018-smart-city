@@ -2,7 +2,9 @@
   <div class="row border-bottom">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
       <div class="navbar-header">
-        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#" @click.prevent="toggleNavbar">
+          <i class="fa fa-bars"></i>
+        </a>
         <form role="search" class="navbar-form-custom" method="post" action="#">
           <div class="form-group">
             <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
@@ -19,3 +21,13 @@
     </nav>
   </div>
 </template>
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  methods: {
+    toggleNavbar () {
+      this.$emit('navToggle')
+    }
+  }
+})
+</script>

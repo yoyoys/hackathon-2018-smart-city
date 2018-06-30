@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer fixed">
     <div class="pull-right">
       10GB of <strong>250GB</strong> Free.
     </div>

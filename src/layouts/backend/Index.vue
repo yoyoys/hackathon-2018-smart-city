@@ -1,9 +1,9 @@
 <template>
-<div class="skin-1">
+<div class="theme-body skin-1" :class="{'mini-navbar': miniNavbar}">
   <div id="wrapper">
-    <NavbarContent/>
+    <SidbarNav/>
       <div id="page-wrapper" class="gray-bg">
-        <TopNavbar/>
+        <TopNavbar @navToggle="navToggle"/>
         <div class="wrapper wrapper-content">
           <router-view/>
         </div>
@@ -15,15 +15,25 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import NavbarContent from './nav/Index.vue'
-import FooterContent from './footer/Index.vue'
-import TopNavbar from './top-navbar/Index.vue'
+import SidbarNav from './SidbarNav.vue'
+import FooterContent from './FooterContent.vue'
+import TopNavbar from './TopNavbar.vue'
 
 export default Vue.extend({
+  data () {
+    return {
+      miniNavbar: false
+    }
+  },
   components: {
-    NavbarContent,
+    SidbarNav,
     TopNavbar,
     FooterContent
+  },
+  methods: {
+    navToggle () {
+      this.miniNavbar = !this.miniNavbar
+    }
   }
 })
 </script>
