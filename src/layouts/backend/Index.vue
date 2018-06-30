@@ -30,10 +30,24 @@ export default Vue.extend({
   methods: {
     navToggle () {
       document.body.classList.toggle('mini-navbar')
+    },
+
+    setBodySizeClass (width) {
+      if (width < 769) {
+        document.body.classList.add('body-small')
+      } else {
+        document.body.classList.remove('body-small')
+      }
     }
   },
+
   created () {
     document.body.classList.add('skin-1')
+    this.setBodySizeClass(window.innerWidth)
+
+    window.addEventListener('resize', () => {
+      this.setBodySizeClass(window.innerWidth)
+    })
   },
   destroyed () {
     document.body.classList.remove('skin-1')
