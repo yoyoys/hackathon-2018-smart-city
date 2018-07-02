@@ -42,7 +42,7 @@ export default Vue.extend({
   },
 
   created () {
-    document.body.classList.add('skin-1')
+    document.body.classList.add('skin-1', 'fixed-nav', 'fixed-nav-basic', 'fixed-sidebar')
     this.setBodySizeClass(window.innerWidth)
 
     window.addEventListener('resize', () => {
@@ -50,9 +50,13 @@ export default Vue.extend({
     })
   },
   destroyed () {
-    document.body.classList.remove('skin-1')
+    document.body.classList.remove('skin-1', 'fixed-nav', 'fixed-nav-basic')
   }
 
 })
 </script>
 <style lang="scss" src="@/assets/inspania/style.scss"></style>
+
+<style>
+
+</style>
