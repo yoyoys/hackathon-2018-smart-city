@@ -111,13 +111,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import MetisMenu from 'metismenu/dist/modules/index.js'
+import MetisMenu from 'metismenu/src'
+// import MetisMenu from 'metismenu/dist/modules/index.js'
 
 export default Vue.extend({
   mounted () {
     const menu = new MetisMenu(this.$el)
 
     menu.init()
+
     // console.log($(this.$el), $(this.$el).metisMenu)
   }
 })
