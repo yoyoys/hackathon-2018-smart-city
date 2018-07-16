@@ -3,18 +3,18 @@
     <nav class="navbar navbar-fixed-top white-bg" role="navigation" style="margin-bottom: 0">
       <div class="navbar-header">
         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#" @click.prevent="toggleNavbar">
-          <i class="fa fa-bars"></i>
+          <i class="fa fa-bars"/>
         </a>
         <form role="search" class="navbar-form-custom" method="post" action="#">
           <div class="form-group">
-            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+            <input id="top-search" type="text" placeholder="Search for something..." class="form-control" name="top-search">
           </div>
         </form>
       </div>
       <ul class="nav navbar-top-links navbar-right">
         <li>
           <a href="#">
-            <i class="fa fa-sign-out"></i> Log out
+            <i class="fa fa-sign-out"/> Log out
           </a>
         </li>
       </ul>
