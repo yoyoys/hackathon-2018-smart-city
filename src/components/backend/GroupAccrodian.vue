@@ -13,6 +13,7 @@
           li.sensor(
             v-for="tank in item.tanks"
             :key="tank.id"
+            @click="onTank({tankId: tank.id, buildingid: item.buildingid})"
           ) Sensor {{ tank.floor | floor}}
 </template>
 <style lang="scss" scoped>
@@ -75,6 +76,7 @@
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
 import { IBuilding } from '@/typings/api'
+import { ITankData } from '@/typings/building'
 export default Vue.extend({
   props: {
     status: {
@@ -114,6 +116,9 @@ export default Vue.extend({
   methods: {
     toggleOpen () {
       this.open = !this.open
+    },
+    onTank (payload: ITankData) {
+      this.$emit('onTank', payload)
     },
   },
 })

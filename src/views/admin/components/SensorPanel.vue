@@ -1,52 +1,39 @@
 <template lang="pug">
   transition(name="fade" mode="out-in")
-    WidgetPanel.mb-0(
-      title="ttt"
-      no-border
-      v-if="p1"
+    BuildingListPanel(
+      v-if="!isTank"
       key="p1"
+      :list="statusGroup"
+      @onTank="onTank"
     )
-      .d-flex.flex-column
-        .search
-          input.form-control(type="text" placeholder="Search")
-        h2 感應器列表
-        .scroll
-          GroupAccrodian(
-            v-for="(item, status) in statusGroup"
-            :key="status"
-            :status="status"
-            :data="item"
-          )
-    WidgetPanel.mb-0(
-      title="ttt"
-      no-border
+    TankDetailPanel(
       v-else
       key="p2"
+      @onBack="prev"
+      :tank="currentTank"
+      :building="currentBuilding"
     )
-      h3 test
-      template(slot="pre")
-        .prev(@click="prev")
-          h5.mr-2 ttt
-          h5.mr-2 >
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { find, prop, flow } from 'lodash/fp'
 import store from '@/store'
-import WidgetPanel from '@/components/backend/WidgetPanel.vue'
-import GroupAccrodian from '@/components/backend/GroupAccrodian.vue'
 import { IKeyAny } from '@/typings/helpers'
-import { IBuilding } from '@/typings/api'
+import { IBuilding, ITank } from '@/typings/api'
+import { ITankData } from '@/typings/building'
+import BuildingListPanel from './BuildingListPanel.vue'
+import TankDetailPanel from './TankDetailPanel.vue'
 
 export default Vue.extend({
   data () {
     return {
-      p1: true,
+      tankData: null as ITankData | null,
     }
   },
   components: {
-    WidgetPanel,
-    GroupAccrodian,
+    BuildingListPanel,
+    TankDetailPanel,
   },
   computed: {
     statusGroup (): IKeyAny<IBuilding[]> {
@@ -56,13 +43,33 @@ export default Vue.extend({
         'Good': [],
       }
     },
+
+    isTank (): boolean {
+      return !!this.tankData
+    },
+    currentBuilding (): IBuilding | null {
+      if (this.tankData == null) return null
+
+      const findBuilding =
+        find((o:IBuilding) => o.buildingid === this.tankData!.buildingid)
+      return findBuilding(store.state.buildings) || null
+    },
+    currentTank (): ITank | null {
+      if (this.currentBuilding == null) return null
+
+      const findTank = find((o:ITank) => o.tankid === this.tankData!.tankiId)
+
+      return findTank(this.currentBuilding.tanks) || null
+    },
   },
   methods: {
-    changePage () {
-      this.p1 = false
+    onTank (payload: ITankData) {
+      console.log('tankkk', payload)
+      this.tankData = payload
     },
+
     prev () {
-      this.p1 = true
+      this.tankData = null
     },
   },
 })
@@ -88,16 +95,5 @@ $animationDuration: 0.5s;
   * {
     font-weight: 800;
   }
-}
-.search {
-  padding-bottom: 12px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid #ccc;
-}
-
-.scroll {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  max-height: 72vh;
 }
 </style>
