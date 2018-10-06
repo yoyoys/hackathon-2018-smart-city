@@ -37,6 +37,7 @@ export default Vue.extend({
         datasets: [{
           data: this.filteredData.map(o => o.waterlevel),
           // lineTension: 0,
+          scaleBeginAtZero: true,
           backgroundColor: 'transparent',
           borderColor: '#007bff',
           borderWidth: 4,

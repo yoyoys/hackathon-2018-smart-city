@@ -2,14 +2,16 @@
 .row.about.full
   .col-lg-8.p-0
     GmapMap.google-map(
-      :center="{lat:10, lng:10}"
-      :zoom="7"
-      map-type-id="terrain"
+      :center="{lat:25.0353033, lng: 121.5154192}"
+      :zoom="15"
     )
-      GmapCircle(
-        :center="{lat:11, lng:10}"
-        :radius="30000"
-        :options="options"
+      GmapMarker(
+        :key="m.buildingid"
+        v-for="m in buildings"
+        :position="getPosition(m)"
+        :clickable="true"
+        :draggable="true"
+        @click="center=getPosition(m)"
       )
   .col-lg-4.p-0
     SensorPanel.panel
@@ -28,6 +30,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import SensorPanel from './components/SensorPanel.vue'
+import store from '@/store'
+import { IBuilding } from '@/typings/api'
 
 export default Vue.extend({
   components: {
@@ -41,6 +45,17 @@ export default Vue.extend({
         strokeWeight: 2,
         fillColor: '#FF0000',
         fillOpacity: 0.35,
+      }
+    },
+    buildings (): IBuilding[] {
+      return store.state.buildings
+    },
+  },
+  methods: {
+    getPosition (building: IBuilding): {lat: number, lng: number} {
+      return {
+        lat: building.latitude,
+        lng: building.longitude,
       }
     },
   },

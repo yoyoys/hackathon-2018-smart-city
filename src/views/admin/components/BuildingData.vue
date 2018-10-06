@@ -7,7 +7,7 @@
       .name(@click="onBuilding(item.buildingid)") {{item.buildingname}}
       ul.sensors
         li.sensor(
-          v-for="tank in item.tanks"
+          v-for="tank in reverse(item.tanks)"
           :key="tank.id"
           @click="onTank({tankid: tank.tankid, buildingid: item.buildingid})"
           :class="tankClass(tank)"
@@ -18,6 +18,9 @@
 import Vue, { PropOptions } from 'vue'
 import { IBuilding, ITank } from '@/typings/api'
 import { ITankData } from '@/typings/building'
+import { floor } from '@/utilities/filter'
+import { reverse } from 'lodash/fp'
+
 export default Vue.extend({
   props: {
     data: {
@@ -27,14 +30,11 @@ export default Vue.extend({
   },
 
   filters: {
-    floor (value: number): string {
-      if (value > 0) return `${value} F`
-      return `B${-value} F`
-    },
+    floor,
   },
 
   methods: {
-
+    reverse,
     onTank (payload: ITankData) {
       this.$emit('onTank', payload)
     },

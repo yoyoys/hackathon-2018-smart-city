@@ -10,4 +10,5 @@ export interface IChartDataset {
   borderColor: string;
   borderWidth: number;
   pointBackgroundColor: string;
+  scaleBeginAtZero : boolean;
 }
