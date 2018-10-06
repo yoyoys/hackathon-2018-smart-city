@@ -5,11 +5,6 @@
         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#" @click.prevent="toggleNavbar">
           <i class="fa fa-bars"/>
         </a>
-        <form role="search" class="navbar-form-custom" method="post" action="#">
-          <div class="form-group">
-            <input id="top-search" type="text" placeholder="Search for something..." class="form-control" name="top-search">
-          </div>
-        </form>
       </div>
       <ul class="nav navbar-top-links navbar-right">
         <li>

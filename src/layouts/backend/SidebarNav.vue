@@ -22,16 +22,12 @@
               </div>
           </li>
           <li>
-              <a href="layouts.html"><i class="fa fa-diamond"/> <span class="nav-label">Layouts</span></a>
-          </li>
-          <li class="landing_link">
-              <a target="_blank" href="landing.html"><i class="fa fa-star"/> <span class="nav-label">Landing Page</span> <span class="label label-warning float-right">NEW</span></a>
-          </li>
-          <li class="special_link">
-              <a href="package.html"><i class="fa fa-database"/> <span class="nav-label">Package</span></a>
+            <a href="layouts.html">
+              <i class="fa fa-diamond"/>
+              <span class="nav-label">Layouts</span>
+            </a>
           </li>
       </ul>
-
     </div>
   </nav>
 </template>

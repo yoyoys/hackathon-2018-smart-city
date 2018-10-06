@@ -6,7 +6,7 @@
         <div class="wrapper wrapper-content">
           <router-view/>
         </div>
-        <FooterContent/>
+        <!-- <FooterContent/> -->
       </div>
   </div>
 </template>
