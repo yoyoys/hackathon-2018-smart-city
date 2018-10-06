@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
+import MapView from '@/views/admin/MapView.vue'
 
 import DefaultLayout from '@/layouts/backend/Index.vue'
 import EmptyLayout from '@/layouts/empty/Index.vue'
@@ -17,9 +17,9 @@ export default new Router({
         {
           path: '/',
           name: 'home',
-          component: Home
-        }
-      ]
+          component: Home,
+        },
+      ],
     },
     {
       path: '/admin',
@@ -27,10 +27,10 @@ export default new Router({
       children: [
         {
           path: '/',
-          name: 'about',
-          component: About
-        }
-      ]
-    }
-  ]
+          name: 'MapView',
+          component: MapView,
+        },
+      ],
+    },
+  ],
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="row border-bottom">
-    <nav class="navbar navbar-fixed-top white-bg" role="navigation" style="margin-bottom: 0">
+    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
       <div class="navbar-header">
         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#" @click.prevent="toggleNavbar">
           <i class="fa fa-bars"/>
@@ -22,7 +22,7 @@ export default Vue.extend({
   methods: {
     toggleNavbar () {
       this.$emit('navToggle')
-    }
-  }
+    },
+  },
 })
 </script>

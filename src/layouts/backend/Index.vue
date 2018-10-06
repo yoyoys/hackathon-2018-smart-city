@@ -25,7 +25,7 @@ export default Vue.extend({
   components: {
     SidbarNav,
     TopNavbar,
-    FooterContent
+    FooterContent,
   },
   methods: {
     navToggle () {
@@ -38,11 +38,11 @@ export default Vue.extend({
       } else {
         document.body.classList.remove('body-small')
       }
-    }
+    },
   },
 
   created () {
-    document.body.classList.add('skin-1', 'fixed-nav', 'fixed-nav-basic')
+    document.body.classList.add('skin-1')
     this.setBodySizeClass(window.innerWidth)
 
     window.addEventListener('resize', () => {
@@ -50,8 +50,8 @@ export default Vue.extend({
     })
   },
   destroyed () {
-    document.body.classList.remove('skin-1', 'fixed-nav', 'fixed-nav-basic')
-  }
+    document.body.classList.remove('skin-1')
+  },
 
 })
 </script>
