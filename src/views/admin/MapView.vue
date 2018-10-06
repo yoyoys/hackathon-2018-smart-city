@@ -44,5 +44,8 @@ export default Vue.extend({
       }
     },
   },
+  created () {
+    this.$store.dispatch('fetchBuilding')
+  },
 })
 </script>

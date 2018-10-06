@@ -6,7 +6,13 @@
       v-if="p1"
       key="p1"
     )
-      button.btn.btn-primary(@click="changePage") test
+      input.form-control(type="text" placeholder="Search")
+      hr
+      GroupAccrodian(
+        v-for="(item, status) in statusGroup"
+        :status="status"
+        :data="item"
+      )
     WidgetPanel.mb-0(
       title="ttt"
       no-border
@@ -23,6 +29,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import WidgetPanel from '@/components/backend/WidgetPanel.vue'
+import GroupAccrodian from '@/components/backend/GroupAccrodian.vue'
+import { IKeyAny } from '@/typings/helpers'
+import { IBuilding } from '@/typings/api'
 
 export default Vue.extend({
   data () {
@@ -32,6 +41,16 @@ export default Vue.extend({
   },
   components: {
     WidgetPanel,
+    GroupAccrodian,
+  },
+  computed: {
+    statusGroup (): IKeyAny<IBuilding[]> {
+      return {
+        'Danger': [],
+        'Warning': [],
+        'Good': [],
+      }
+    },
   },
   methods: {
     changePage () {
