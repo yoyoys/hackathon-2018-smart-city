@@ -1,6 +1,23 @@
 <template lang="pug">
-  WidgetPanel(title="ttt" no-border)
-    h3 test
+  transition(name="fade" mode="out-in")
+    WidgetPanel.mb-0(
+      title="ttt"
+      no-border
+      v-if="p1"
+      key="p1"
+    )
+      button.btn.btn-primary(@click="changePage") test
+    WidgetPanel.mb-0(
+      title="ttt"
+      no-border
+      v-else
+      key="p2"
+    )
+      h3 test
+      template(slot="pre")
+        .prev(@click="prev")
+          h5.mr-2 ttt
+          h5.mr-2 >
 </template>
 
 <script lang="ts">
@@ -8,8 +25,21 @@ import Vue from 'vue'
 import WidgetPanel from '@/components/backend/WidgetPanel.vue'
 
 export default Vue.extend({
+  data () {
+    return {
+      p1: true,
+    }
+  },
   components: {
     WidgetPanel,
+  },
+  methods: {
+    changePage () {
+      this.p1 = false
+    },
+    prev () {
+      this.p1 = true
+    },
   },
 })
 </script>
@@ -20,11 +50,19 @@ $animationDuration: 0.5s;
 
 @import "~animatewithsass/animate.scss";
 
-.fadeUp-enter-active, .fadeUpIn {
-  @include fadeInUp(1, .3s);
+.fade-enter-active, .fadeIn {
+  @include fadeInRight(1, .3s);
 }
 
-.fadeUp-leave-active, .fadeUpOut {
-  @include fadeOutUp(1, .3s);
+.fade-leave-active, .fadeOut {
+  @include fadeOutLeft(1, .3s);
+}
+
+.prev {
+  cursor: pointer;
+  display: inline-block;
+  * {
+    font-weight: 800;
+  }
 }
 </style>

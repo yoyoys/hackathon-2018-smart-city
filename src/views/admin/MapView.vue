@@ -15,7 +15,7 @@
     SensorPanel.panel
 </template>
 <style lang="scss" scoped>
-  $height: calc(100vh - 61px);
+  $height: calc(100vh - 56px);
 
   .full {
     margin: -30px;

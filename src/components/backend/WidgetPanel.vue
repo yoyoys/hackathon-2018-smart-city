@@ -1,6 +1,7 @@
 <template>
   <div :class="panelClass" class="ibox" >
     <div class="ibox-title">
+      <slot name="pre"/>
       <h5>{{title}}</h5>
     </div>
     <div :class="panelClass" class="ibox-content">
