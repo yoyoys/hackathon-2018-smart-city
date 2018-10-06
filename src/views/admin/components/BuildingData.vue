@@ -68,6 +68,7 @@ export default Vue.extend({
     list-style: none;
     .sensor {
       padding-left: 12px;
+      cursor: pointer;
       &:before {
         content: '└';
         display: inline-block;
