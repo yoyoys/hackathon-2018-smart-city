@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { find, prop, flow } from 'lodash/fp'
+import { find, filter, prop, flow } from 'lodash/fp'
 import store from '@/store'
 import { IKeyAny } from '@/typings/helpers'
 import { IBuilding, ITank } from '@/typings/api'
@@ -37,10 +37,14 @@ export default Vue.extend({
   },
   computed: {
     statusGroup (): IKeyAny<IBuilding[]> {
+      const filterWarningTank = filter((o: ITank) => o.waterlevel < 150 && o.waterlevel > 120)
+      const filterDangerTank = filter((o: ITank) => o.waterlevel < 120)
+      const filterGoodTank = filter((o: ITank) => o.waterlevel > 150)
+
       return {
-        'Danger': store.state.buildings,
-        'Warning': [],
-        'Good': [],
+        'Danger': filter((o: IBuilding) => filterDangerTank(o.tanks).length > 0, store.state.buildings),
+        'Warning': filter((o: IBuilding) => filterWarningTank(o.tanks).length > 0, store.state.buildings),
+        'Good': filter((o: IBuilding) => filterGoodTank(o.tanks).length > 0, store.state.buildings),
       }
     },
 
@@ -50,14 +54,13 @@ export default Vue.extend({
     currentBuilding (): IBuilding | null {
       if (this.tankData == null) return null
 
-      const findBuilding =
-        find((o:IBuilding) => o.buildingid === this.tankData!.buildingid)
+      const findBuilding = find((o:IBuilding) => o.buildingid === this.tankData!.buildingid)
       return findBuilding(store.state.buildings) || null
     },
     currentTank (): ITank | null {
       if (this.currentBuilding == null) return null
-
-      const findTank = find((o:ITank) => o.tankid === this.tankData!.tankiId)
+      console.log(this.currentBuilding, this.tankData, this.tankData!.tankid)
+      const findTank = find((o:ITank) => o.tankid === this.tankData!.tankid)
 
       return findTank(this.currentBuilding.tanks) || null
     },

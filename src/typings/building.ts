@@ -1,5 +1,5 @@
 
 export interface ITankData {
   buildingid: string;
-  tankiId: string;
+  tankid: string;
 }

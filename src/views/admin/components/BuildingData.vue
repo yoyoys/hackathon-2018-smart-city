@@ -9,13 +9,14 @@
         li.sensor(
           v-for="tank in item.tanks"
           :key="tank.id"
-          @click="onTank({tankId: tank.id, buildingid: item.buildingid})"
+          @click="onTank({tankid: tank.tankid, buildingid: item.buildingid})"
+          :class="tankClass(tank)"
         ) Sensor {{ tank.floor | floor}}
 </template>
 
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
-import { IBuilding } from '@/typings/api'
+import { IBuilding, ITank } from '@/typings/api'
 import { ITankData } from '@/typings/building'
 export default Vue.extend({
   props: {
@@ -36,6 +37,17 @@ export default Vue.extend({
 
     onTank (payload: ITankData) {
       this.$emit('onTank', payload)
+    },
+
+    tankClass (tank: ITank): string {
+      if (tank.waterlevel > 150) {
+        return ''
+      }
+
+      if (tank.waterlevel > 120) {
+        return 'warning'
+      }
+      return 'danger'
     },
   },
 })
@@ -60,6 +72,13 @@ export default Vue.extend({
         content: '└';
         display: inline-block;
         margin-right: .5em;
+      }
+      &.danger {
+        color: #f00;
+        font-weight: 800;
+      }
+      &.warning {
+        color: orange;
       }
     }
   }

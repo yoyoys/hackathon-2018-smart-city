@@ -2,7 +2,7 @@
   .group-accrodian(:class="groupClass")
     .title(@click="toggleOpen")
       i.fa.fa-caret-right
-      h3.status.d-inline-block {{status}}
+      h3.status.d-inline-block {{label}}
     .body
       slot
 </template>
@@ -46,7 +46,7 @@
 import Vue, { PropOptions } from 'vue'
 export default Vue.extend({
   props: {
-    status: {
+    label: {
       type: String,
       required: true,
     },

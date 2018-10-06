@@ -11,7 +11,7 @@
         GroupAccrodian(
           v-for="(item, status) in list"
           :key="status"
-          :status="status + ' (' + item.length + ')'"
+          :label="status + ' (' + item.length + ')'"
         )
           BuildingData(
             :data="item"
@@ -38,9 +38,9 @@ import Vue, { PropOptions } from 'vue'
 import { IBuilding } from '@/typings/api'
 import WidgetPanel from '@/components/backend/WidgetPanel.vue'
 import GroupAccrodian from '@/components/backend/GroupAccrodian.vue'
-import BuildingData from '@/components/backend/BuildingData.vue'
 import { IKeyAny } from '@/typings/helpers'
 import { ITankData } from '@/typings/building'
+import BuildingData from './BuildingData.vue'
 
 export default Vue.extend({
   components: {

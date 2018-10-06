@@ -10,7 +10,11 @@ export interface ITank {
   tankid: string;
   floor: number;
   motor: boolean;
-  records?: ITankLog[];
+  waterlevel: number;
+  /** js timestamp */
+  tstamp: number;
+  waterquality: number;
+  records: ITankLog[];
 }
 
 export interface ITankLog {
