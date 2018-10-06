@@ -6,15 +6,17 @@
       v-if="p1"
       key="p1"
     )
-      input.form-control(type="text" placeholder="Search")
-      hr
-      h2 感應器列表
-      GroupAccrodian(
-        v-for="(item, status) in statusGroup"
-        :key="status"
-        :status="status"
-        :data="item"
-      )
+      .d-flex.flex-column
+        .search
+          input.form-control(type="text" placeholder="Search")
+        h2 感應器列表
+        .scroll
+          GroupAccrodian(
+            v-for="(item, status) in statusGroup"
+            :key="status"
+            :status="status"
+            :data="item"
+          )
     WidgetPanel.mb-0(
       title="ttt"
       no-border
@@ -30,6 +32,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import store from '@/store'
 import WidgetPanel from '@/components/backend/WidgetPanel.vue'
 import GroupAccrodian from '@/components/backend/GroupAccrodian.vue'
 import { IKeyAny } from '@/typings/helpers'
@@ -48,7 +51,7 @@ export default Vue.extend({
   computed: {
     statusGroup (): IKeyAny<IBuilding[]> {
       return {
-        'Danger': [],
+        'Danger': store.state.buildings,
         'Warning': [],
         'Good': [],
       }
@@ -85,5 +88,16 @@ $animationDuration: 0.5s;
   * {
     font-weight: 800;
   }
+}
+.search {
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 72vh;
 }
 </style>

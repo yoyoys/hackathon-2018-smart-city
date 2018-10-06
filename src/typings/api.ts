@@ -9,7 +9,7 @@ export interface IBuilding {
 export interface ITank {
   tankid: string;
   floor: number;
-  motor?: boolean;
+  motor: boolean;
   records?: ITankLog[];
 }
 

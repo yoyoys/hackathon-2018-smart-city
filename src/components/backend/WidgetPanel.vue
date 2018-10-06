@@ -16,6 +16,7 @@
       border-width: 0;
     }
     .ibox-content {
+      position: relative;
       border-top-width: 1px;
     }
   }
