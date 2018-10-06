@@ -4,7 +4,7 @@
       v-for="item in data"
       :key="item.buildingid"
     )
-      .name {{item.buildingname}}
+      .name(@click="onBuilding(item.buildingid)") {{item.buildingname}}
       ul.sensors
         li.sensor(
           v-for="tank in item.tanks"
@@ -48,6 +48,9 @@ export default Vue.extend({
         return 'warning'
       }
       return 'danger'
+    },
+    onBuilding (id: string) {
+      this.$router.push(`/admin/building/${id}`)
     },
   },
 })

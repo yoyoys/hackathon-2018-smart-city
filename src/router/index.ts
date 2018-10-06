@@ -32,9 +32,10 @@ export default new Router({
           component: MapView,
         },
         {
-          path: 'building',
+          path: 'building/:id',
           name: 'BuildingView',
           component: BuildingView,
+          props: true,
         },
       ],
     },

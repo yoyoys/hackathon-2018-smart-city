@@ -2,29 +2,42 @@
 .row
   .col-lg-8
     TankChart(
-      v-if="data"
-      :data="data"
+      v-for="item in data"
+      :data="item"
     )
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { find } from 'lodash/fp'
 import store from '@/store'
 import TankChart from '@/components/backend/TankChart.vue'
-import { ITankLog } from '@/typings/api'
+import { ITankLog, IBuilding, ITank } from '@/typings/api'
 
 export default Vue.extend({
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+  },
   components: {
     TankChart,
   },
   computed: {
-    data (): ITankLog[] | null {
-      if (!store.state.buildings[0]) return null
-      return store.state.buildings[0].tanks[0].records
+    tanks (): ITank[] {
+      const building = find((o: IBuilding) => o.buildingid === this.id, store.state.buildings)
+
+      if (!building) return []
+
+      return building.tanks
+    },
+    data (): ITankLog[][] {
+      return this.tanks.map(o => o.records)
     },
   },
   created () {
-    this.$store.dispatch('fetchBuilding')
+    // this.$store.dispatch('fetchBuilding')
   },
 })
 </script>
