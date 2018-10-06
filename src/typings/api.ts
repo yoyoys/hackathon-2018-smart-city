@@ -1,6 +1,7 @@
 
 export interface IBuilding {
   buildingid: string;
+  buildingname: string;
   tanks: ITank[];
   latitude: number;
   longitude: number;

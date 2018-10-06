@@ -10,6 +10,7 @@
       hr
       GroupAccrodian(
         v-for="(item, status) in statusGroup"
+        :key="status"
         :status="status"
         :data="item"
       )
