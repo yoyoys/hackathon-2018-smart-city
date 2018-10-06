@@ -42,7 +42,7 @@ export default Vue.extend({
   },
 
   created () {
-    document.body.classList.add('skin-1', 'fixed-nav', 'fixed-nav-basic', 'fixed-sidebar')
+    document.body.classList.add('skin-1', 'fixed-nav', 'fixed-nav-basic')
     this.setBodySizeClass(window.innerWidth)
 
     window.addEventListener('resize', () => {
