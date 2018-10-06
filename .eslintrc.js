@@ -19,6 +19,7 @@ module.exports = {
     'vue/html-quotes': [
       'error',
       'double'
-    ]
+    ],
+    'comma-dangle': ['error', 'always']
   }
 }
