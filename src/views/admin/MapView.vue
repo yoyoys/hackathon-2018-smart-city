@@ -1,29 +1,28 @@
 <template lang="pug">
 .row.about.full
-  .col-lg-8
-      GmapMap.google-map.full(
-        :center="{lat:10, lng:10}"
-        :zoom="7"
-        map-type-id="terrain"
+  .col-lg-8.p-0
+    GmapMap.google-map(
+      :center="{lat:10, lng:10}"
+      :zoom="7"
+      map-type-id="terrain"
+    )
+      GmapCircle(
+        :center="{lat:11, lng:10}"
+        :radius="30000"
+        :options="options"
       )
-        GmapCircle(
-          :center="{lat:11, lng:10}"
-          :radius="30000"
-          :options="options"
-       )
-  .col-lg-4
-    h3 test
+  .col-lg-4.p-0
+    WidgetPanel.panel(title="ttt" no-border)
+      h3 test
 </template>
 <style lang="scss" scoped>
+  $height: calc(100vh - 61px);
 
   .full {
     margin: -30px;
   }
-  .google-map {
-    height: calc(100vh - 61px);
-    &.full {
-      margin: 0 -15px;
-    }
+  .google-map, .panel {
+    height: $height;
   }
 </style>
 
