@@ -12,8 +12,7 @@
         :options="options"
       )
   .col-lg-4.p-0
-    WidgetPanel.panel(title="ttt" no-border)
-      h3 test
+    SensorPanel.panel
 </template>
 <style lang="scss" scoped>
   $height: calc(100vh - 61px);
@@ -28,11 +27,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import WidgetPanel from '@/components/backend/WidgetPanel.vue'
+import SensorPanel from './components/SensorPanel.vue'
 
 export default Vue.extend({
   components: {
-    WidgetPanel,
+    SensorPanel,
   },
   computed: {
     options (): any {

@@ -20,6 +20,6 @@ module.exports = {
       'error',
       'double'
     ],
-    'comma-dangle': ['error', 'always']
+    'comma-dangle': ['error', 'always-multiline']
   }
 }

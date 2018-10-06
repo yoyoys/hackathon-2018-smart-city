@@ -1,35 +1,28 @@
-<template>
-  <nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-      <ul id="side-menu" class="nav metismenu">
-          <li class="nav-header">
-              <div class="dropdown profile-element">
-                  <img alt="image" class="profile rounded-circle" src="@/assets/logo.png">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                      <span class="block m-t-xs font-bold">David Williams</span>
-                      <span class="text-muted text-xs block">Art Director <b class="caret"/></span>
-                  </a>
-                  <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                      <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                      <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
-                      <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
-                      <li class="dropdown-divider"/>
-                      <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                  </ul>
-              </div>
-              <div class="logo-element">
-                  IN+
-              </div>
-          </li>
-          <li>
-            <a href="layouts.html">
-              <i class="fa fa-diamond"/>
-              <span class="nav-label">Layouts</span>
-            </a>
-          </li>
-      </ul>
-    </div>
-  </nav>
+<template lang="pug">
+  nav.navbar-default.navbar-static-side(role='navigation')
+    .sidebar-collapse
+      ul#side-menu.nav.metismenu
+        li.nav-header
+          .dropdown.profile-element
+            img.profile.rounded-circle(alt='image', src='@/assets/logo.png')
+            a.dropdown-toggle(data-toggle='dropdown', href='#')
+              span.block.m-t-xs.font-bold David Williams
+              span.text-muted.text-xs.block Art Director
+            ul.dropdown-menu.animated.fadeInRight.m-t-xs
+              li
+                a.dropdown-item(href='profile.html') Profile
+              li
+                a.dropdown-item(href='contacts.html') Contacts
+              li
+                a.dropdown-item(href='mailbox.html') Mailbox
+              li.dropdown-divider
+              li
+                a.dropdown-item(href='login.html') Logout
+          .logo-element IN+
+        li(v-for='item in menuItems', :key='item.href + item.label')
+          router-link(:to='item.href')
+            i.fa(:class='item.icon')
+            span.nav-label {{item.label}}
 </template>
 <style lang="scss" scoped>
 .profile {
@@ -41,14 +34,40 @@
 import Vue from 'vue'
 import MetisMenu from 'metismenu/src'
 // import MetisMenu from 'metismenu/dist/modules/index.js'
+interface IMenuItem {
+  href: string;
+  label: string;
+  icon: string;
+}
 
 export default Vue.extend({
+  computed: {
+    menuItems (): IMenuItem[] {
+      return [
+        {
+          href: '/admin/',
+          label: 'Map',
+          icon: 'fa-diamond',
+        },
+        {
+          href: '/admin/',
+          label: 'Map 2',
+          icon: 'fa-diamond',
+        },
+        {
+          href: '/admin/',
+          label: 'Map 3',
+          icon: 'fa-diamond',
+        },
+      ]
+    },
+  },
   mounted () {
     const menu = new MetisMenu(this.$el)
 
     menu.init()
 
     // console.log($(this.$el), $(this.$el).metisMenu)
-  }
+  },
 })
 </script>

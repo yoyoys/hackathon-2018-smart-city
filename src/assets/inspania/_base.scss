@@ -1456,7 +1456,7 @@ body.fullscreen-ibox-mode {
 }
 
 .ibox.fullscreen .ibox-content {
-  min-height: calc("100% - 48px");
+  // min-height: calc("100% - 48px");
 }
 
 // Bootstrap issue in 3.3.0 with modal https://github.com/twbs/bootstrap/issues/9855
