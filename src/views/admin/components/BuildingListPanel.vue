@@ -11,7 +11,7 @@
         GroupAccrodian(
           v-for="(item, status) in list"
           :key="status"
-          :status="status"
+          :status="status + ' (' + item.length + ')'"
         )
           BuildingData(
             :data="item"

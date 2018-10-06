@@ -2,7 +2,7 @@
   .group-accrodian(:class="groupClass")
     .title(@click="toggleOpen")
       i.fa.fa-caret-right
-      h3.status.d-inline-block {{status}} ({{count}})
+      h3.status.d-inline-block {{status}}
     .body
       slot
 </template>
@@ -53,9 +53,6 @@ export default Vue.extend({
   },
 
   computed: {
-    count (): number {
-      return 1
-    },
     groupClass (): object {
       return {
         'open': this.open,
