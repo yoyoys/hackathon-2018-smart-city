@@ -8,6 +8,7 @@
     )
       input.form-control(type="text" placeholder="Search")
       hr
+      h2 感應器列表
       GroupAccrodian(
         v-for="(item, status) in statusGroup"
         :key="status"
