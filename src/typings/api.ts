@@ -1,3 +1,4 @@
+import { IKeyAny } from '@/typings/helpers'
 
 export interface IBuilding {
   buildingid: string;
@@ -6,6 +7,13 @@ export interface IBuilding {
   latitude: number;
   longitude: number;
 }
+
+export interface IUsage {
+  area: string;
+  daytime: number;
+  nighttime: number;
+}
+
 export interface ITank {
   tankid: string;
   floor: number;
@@ -23,4 +31,8 @@ export interface ITankLog {
   tstamp: number;
   waterquality: number;
   motor: boolean;
+}
+
+export interface IQuality extends IKeyAny<number[]>{
+
 }

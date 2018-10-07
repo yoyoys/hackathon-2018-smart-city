@@ -6,9 +6,9 @@ export interface IChart {
 export interface IChartDataset {
   data: number[];
   lineTension?: number;
-  backgroundColor: string;
-  borderColor: string;
-  borderWidth: number;
-  pointBackgroundColor: string;
-  scaleBeginAtZero : boolean;
+  backgroundColor?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  pointBackgroundColor?: string;
+  scaleBeginAtZero? : boolean;
 }

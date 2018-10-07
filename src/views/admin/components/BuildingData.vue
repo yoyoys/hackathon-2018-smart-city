@@ -61,6 +61,7 @@ export default Vue.extend({
     .name {
       font-size: 18px;
       font-weight: 800;
+      cursor: pointer;
     }
     margin-bottom: 12px;
   }

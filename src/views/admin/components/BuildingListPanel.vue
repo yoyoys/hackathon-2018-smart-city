@@ -4,9 +4,9 @@
     no-border
   )
     .d-flex.flex-column
-      .search
-        input.form-control(type="text" placeholder="Search")
-      h2 感應器列表
+      //- .search
+      //-   input.form-control(type="text" placeholder="Search")
+      //- h2 感應器列表
       .scroll
         GroupAccrodian(
           v-for="(item, status) in list"

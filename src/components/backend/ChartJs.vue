@@ -12,6 +12,14 @@ export default Vue.extend({
       type: Object,
       required: true,
     } as PropOptions<IChart>,
+    type: {
+      type: String,
+      default: 'line',
+    },
+    notZero: {
+      type: Boolean,
+      default: false,
+    },
   },
   watch: {
     data: {
@@ -27,7 +35,7 @@ export default Vue.extend({
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: false,
+              beginAtZero: !this.notZero,
             },
           }],
         },
@@ -37,7 +45,7 @@ export default Vue.extend({
       }
       // eslint-disable-next-line no-new
       new Chart(ctx, {
-        type: 'line',
+        type: this.type,
         data,
         options,
       })

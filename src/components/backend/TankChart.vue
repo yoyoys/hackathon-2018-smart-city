@@ -1,6 +1,8 @@
 <template lang="pug">
   //- h1 test
-  ChartJs(:data="chartData")
+  ChartJs(
+    :data="chartData"
+  )
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
@@ -37,7 +39,6 @@ export default Vue.extend({
         datasets: [{
           data: this.filteredData.map(o => o.waterlevel),
           // lineTension: 0,
-          scaleBeginAtZero: true,
           backgroundColor: 'transparent',
           borderColor: '#007bff',
           borderWidth: 4,
