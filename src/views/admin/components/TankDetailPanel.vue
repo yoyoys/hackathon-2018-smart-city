@@ -22,7 +22,7 @@
         .data {{building.buildingaddress}}
       .form-group
         label Water Level
-        .data {{waterLevel}} cm
+        .data {{waterLevel}} %
     GroupAccrodian(
       label="Action"
     )
