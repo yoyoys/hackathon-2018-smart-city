@@ -11,7 +11,7 @@
           :key="tank.id"
           @click="onTank({tankid: tank.tankid, buildingid: item.buildingid})"
           :class="tankClass(tank)"
-        ) Sensor {{ tank.floor | floor}}
+        ) {{ tank.floor | floor}} 水塔
 </template>
 
 <script lang="ts">

@@ -1,6 +1,6 @@
 <template lang="pug">
   WidgetPanel.mb-0(
-    :title="'Sensor ' + floor(tank.floor)"
+    :title="floor(tank.floor) + '水塔'"
     no-border
     v-else
     key="p2"
