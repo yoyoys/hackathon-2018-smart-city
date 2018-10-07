@@ -1,5 +1,5 @@
 <template>
-  <canvas width="900" height="200"/>
+  <canvas width="900" height="280"/>
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'

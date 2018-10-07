@@ -3,6 +3,7 @@
     :data="chartData"
     :min="40"
     not-zero
+    yUnit="百分比"
   )
 </template>
 <script lang="ts">
@@ -29,6 +30,13 @@ export default Vue.extend({
   },
 
   computed: {
+    last ():ITankLog {
+      const [last] = this.data.slice(-1)
+      return last
+    },
+    isDanger (): boolean {
+      return this.last.waterlevel < 60
+    },
     filteredData (): TimeLevel[] {
       return this.hourData.slice(-24)
     },
@@ -47,7 +55,7 @@ export default Vue.extend({
             data: this.filteredData.map(o => o.waterlevel),
             // lineTension: 0,
             backgroundColor: 'transparent',
-            borderColor: '#007bff',
+            borderColor: this.isDanger ? 'red' : '#007bff',
             borderWidth: 4,
             pointBackgroundColor: '#007bff',
           },

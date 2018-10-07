@@ -37,7 +37,7 @@ export default Vue.extend({
   },
   computed: {
     statusGroup (): IKeyAny<IBuilding[]> {
-      const filterDangerTank = filter((o: ITank) => o.waterlevel < 120)
+      const filterDangerTank = filter((o: ITank) => o.waterlevel < 60)
       // const filterGoodTank = filter((o: ITank) => o.waterlevel >= 120)
 
       return {

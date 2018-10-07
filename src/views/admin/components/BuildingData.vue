@@ -40,13 +40,10 @@ export default Vue.extend({
     },
 
     tankClass (tank: ITank): string {
-      if (tank.waterlevel > 150) {
+      if (tank.waterlevel > 60) {
         return ''
       }
 
-      if (tank.waterlevel > 120) {
-        return 'warning'
-      }
       return 'danger'
     },
     onBuilding (id: string) {
