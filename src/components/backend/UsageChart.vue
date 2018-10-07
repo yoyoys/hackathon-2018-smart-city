@@ -2,6 +2,7 @@
   ChartJs(
     :data="usageData"
     type="bar"
+    :min="2000"
     not-zero
   )
 </template>

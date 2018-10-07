@@ -10,19 +10,29 @@
     )
       .form-group
         label Location
-        .data {{building.longitude}} {{building.latitude}}
+        a.d-block.data(
+          target="_blank"
+          :href="'https://www.google.com.tw/search?q=' + location"
+        ) {{location}}
       .form-group
         label Building ID
         .data {{building.buildingname}}
+      .form-group
+        label Building Address
+        .data {{building.buildingaddress}}
       .form-group
         label Water Level
         .data {{waterLevel}} cm
     GroupAccrodian(
       label="Action"
     )
-      .form-group
-        input.mr-2.mt-4(type="checkbox")
-        label Motor On
+      lable.d-inline-block.mt-2 Motor
+      .switch
+        .onoffswitch
+          input#ex-1.onoffswitch-checkbox(type="checkbox" checked="")
+          label.onoffswitch-label(for="ex-1")
+            span.onoffswitch-inner
+            span.onoffswitch-switch
     template(slot="pre")
       .prev.d-inline-block(@click="prev")
         h5.mr-2.back {{building.buildingname}}
@@ -68,6 +78,11 @@ export default Vue.extend({
       const tank = maxByTime(this.tank.records)
       if (!tank) return -1
       return tank.waterlevel
+    },
+
+    location (): string {
+      if (!this.building) return ''
+      return `E${this.building.longitude}  N${this.building.latitude}`
     },
   },
 

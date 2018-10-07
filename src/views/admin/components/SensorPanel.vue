@@ -41,9 +41,9 @@ export default Vue.extend({
       // const filterGoodTank = filter((o: ITank) => o.waterlevel >= 120)
 
       return {
-        'Danger': filter((o: IBuilding) => filterDangerTank(o.tanks).length > 0, store.state.buildings),
+        '水位過低': filter((o: IBuilding) => filterDangerTank(o.tanks).length > 0, store.state.buildings),
         // 'Warning': filter((o: IBuilding) => filterWarningTank(o.tanks).length > 0, store.state.buildings),
-        'Good': filter((o: IBuilding) => filterDangerTank(o.tanks).length === 0, store.state.buildings),
+        '水位正常': filter((o: IBuilding) => filterDangerTank(o.tanks).length === 0, store.state.buildings),
       }
     },
 

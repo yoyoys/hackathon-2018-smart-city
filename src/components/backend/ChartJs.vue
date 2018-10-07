@@ -1,5 +1,5 @@
 <template>
-  <canvas width="900" height="380"/>
+  <canvas width="900" height="280"/>
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
@@ -20,6 +20,10 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    min: {
+      type: Number,
+      default: -1,
+    },
   },
   watch: {
     data: {
@@ -36,6 +40,7 @@ export default Vue.extend({
           yAxes: [{
             ticks: {
               beginAtZero: !this.notZero,
+              suggestedMin: this.min >= 0 ? this.min : undefined,
             },
           }],
         },

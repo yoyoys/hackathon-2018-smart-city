@@ -1,7 +1,8 @@
 <template lang="pug">
-  //- h1 test
   ChartJs(
     :data="chartData"
+    :min="40"
+    not-zero
   )
 </template>
 <script lang="ts">
@@ -11,7 +12,11 @@ import { map } from 'lodash/fp'
 import ChartJs from '@/components/backend/ChartJs.vue'
 import { IChart, IChartDataset } from '@/typings/chart'
 import { ITankLog } from '@/typings/api'
-type TimeLevel = {time: string, waterlevel: number }
+type TimeLevel = {
+  time: string,
+  waterlevel: number,
+  waterquality: number,
+}
 export default Vue.extend({
   props: {
     data: {
@@ -31,19 +36,30 @@ export default Vue.extend({
       return map((o:ITankLog) => ({
         time: moment(o.tstamp).format('k[:00]'),
         waterlevel: o.waterlevel,
+        waterquality: o.waterquality,
       }), this.data)
     },
     chartData (): IChart {
       return {
         labels: this.filteredData.map(o => o.time),
-        datasets: [{
-          data: this.filteredData.map(o => o.waterlevel),
-          // lineTension: 0,
-          backgroundColor: 'transparent',
-          borderColor: '#007bff',
-          borderWidth: 4,
-          pointBackgroundColor: '#007bff',
-        }],
+        datasets: [
+          {
+            data: this.filteredData.map(o => o.waterlevel),
+            // lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff',
+          },
+          {
+            data: this.filteredData.map(o => o.waterquality),
+            // lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: 'limegreen',
+            borderWidth: 4,
+            pointBackgroundColor: 'limegreen',
+          },
+        ],
       }
     },
   },

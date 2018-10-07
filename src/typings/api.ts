@@ -3,6 +3,7 @@ import { IKeyAny } from '@/typings/helpers'
 export interface IBuilding {
   buildingid: string;
   buildingname: string;
+  buildingaddress: string;
   tanks: ITank[];
   latitude: number;
   longitude: number;

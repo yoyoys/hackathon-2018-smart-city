@@ -4,7 +4,7 @@
     WidgetPanel(
       title="台北市用水品質"
     )
-      QualityChart(
+      QualityChart.chart(
         v-if="qualityData"
         :data="qualityData"
       )
@@ -12,37 +12,16 @@
     WidgetPanel(
       title="台北市用水量"
     )
-      UsageChart(
+      UsageChart.chart(
         v-if="usageData"
         :data="usageData"
       )
-
-//- .row
-  .col-lg-6
-    .row
-      .col-lg-12
-        WidgetPanel(
-          title="台北市用水品質"
-        )
-          QualityChart(
-            v-if="qualityData"
-            :data="qualityData"
-          )
-      .col-lg-12
-        WidgetPanel(
-          title="台北市用水量"
-        )
-          UsageChart(
-            v-if="usageData"
-            :data="usageData"
-          )
-  .col-lg-6.d-flex.flex-column
-    WidgetPanel.d-flex.flex-column.flex-grow-1(
-      title="台北市抽水馬達使用時間分佈"
-      flex
-    )
-      h3 123
 </template>
+
+<style lang="scss" scoped>
+
+</style>
+
 <script lang="ts">
 import Vue from 'vue'
 import store from '@/store'

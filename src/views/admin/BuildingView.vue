@@ -8,10 +8,16 @@
     )
       .form-group
         label Location
-        .data {{building.longitude}} {{building.latitude}}
+        a.d-block.data(
+          target="_blank"
+          :href="'https://www.google.com.tw/search?q=' + location"
+        ) {{location}}
       .form-group
         label Building ID
         .data {{building.buildingname}}
+      .form-group
+        label Building Address
+        .data {{building.buildingaddress}}
   .col-lg-9
     .v(
       v-for="item in tanks"
@@ -67,6 +73,11 @@ export default Vue.extend({
     },
     data (): ITankLog[][] {
       return this.tanks.map(o => o.records)
+    },
+
+    location (): string {
+      if (!this.building) return ''
+      return `E${this.building.longitude}  N${this.building.latitude}`
     },
   },
   methods: {

@@ -1,7 +1,7 @@
 <template lang="pug">
   ChartJs(
     :data="usageData"
-
+    :min="96.85"
     not-zero
   )
 </template>
