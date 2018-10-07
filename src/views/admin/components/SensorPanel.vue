@@ -37,14 +37,13 @@ export default Vue.extend({
   },
   computed: {
     statusGroup (): IKeyAny<IBuilding[]> {
-      const filterWarningTank = filter((o: ITank) => o.waterlevel < 150 && o.waterlevel > 120)
       const filterDangerTank = filter((o: ITank) => o.waterlevel < 120)
-      const filterGoodTank = filter((o: ITank) => o.waterlevel > 150)
+      // const filterGoodTank = filter((o: ITank) => o.waterlevel >= 120)
 
       return {
         'Danger': filter((o: IBuilding) => filterDangerTank(o.tanks).length > 0, store.state.buildings),
-        'Warning': filter((o: IBuilding) => filterWarningTank(o.tanks).length > 0, store.state.buildings),
-        'Good': filter((o: IBuilding) => filterGoodTank(o.tanks).length > 0, store.state.buildings),
+        // 'Warning': filter((o: IBuilding) => filterWarningTank(o.tanks).length > 0, store.state.buildings),
+        'Good': filter((o: IBuilding) => filterDangerTank(o.tanks).length === 0, store.state.buildings),
       }
     },
 

@@ -1,6 +1,7 @@
 <template lang="pug">
 .row
   .col-lg-3
+    h4.back(@click="back") Back
     h1 {{building.buildingname}}
     GroupAccrodian(
       label="Information"
@@ -20,6 +21,13 @@
         :data="item.records"
       )
 </template>
+<style lang="scss" scoped>
+.back {
+  text-decoration: underline;
+  font-weight: 800;
+  cursor: pointer;
+}
+</style>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -59,6 +67,11 @@ export default Vue.extend({
     },
     data (): ITankLog[][] {
       return this.tanks.map(o => o.records)
+    },
+  },
+  methods: {
+    back () {
+      this.$router.push(`/admin/map`)
     },
   },
   created () {

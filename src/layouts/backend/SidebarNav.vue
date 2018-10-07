@@ -28,13 +28,13 @@ export default Vue.extend({
     menuItems (): IMenuItem[] {
       return [
         {
-          href: '/admin/',
+          href: '/admin/map',
           label: 'Map',
-          icon: 'fa-diamond',
+          icon: 'fa-map',
         },
 
         {
-          href: '/admin/dashboard',
+          href: '/admin/',
           label: 'Dashboard',
           icon: 'fa-diamond',
         },

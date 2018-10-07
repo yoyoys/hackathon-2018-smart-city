@@ -1,6 +1,6 @@
 <template lang="pug">
   WidgetPanel.mb-0(
-    title="ttt"
+    :title="'Sensor ' + floor(tank.floor)"
     no-border
     v-else
     key="p2"
@@ -16,24 +16,32 @@
         .data {{building.buildingname}}
       .form-group
         label Water Level
-        .data {{waterLevel}}
+        .data {{waterLevel}} cm
     GroupAccrodian(
       label="Action"
     )
       .form-group
-        label Motor
-        .data {{waterLevel}}
+        input.mr-2.mt-4(type="checkbox")
+        label Motor On
     template(slot="pre")
-      .prev(@click="prev")
-        h5.mr-2 ttt
+      .prev.d-inline-block(@click="prev")
+        h5.mr-2.back {{building.buildingname}}
         h5.mr-2 >
 </template>
+
+<style lang="scss" scoped>
+  .back {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
 
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
 import { maxBy } from 'lodash/fp'
 import WidgetPanel from '@/components/backend/WidgetPanel.vue'
 import GroupAccrodian from '@/components/backend/GroupAccrodian.vue'
+import { floor } from '@/utilities/filter'
 
 import { ITank, IBuilding, ITankLog } from '@/typings/api'
 
@@ -64,6 +72,7 @@ export default Vue.extend({
   },
 
   methods: {
+    floor,
     prev () {
       this.$emit('onBack')
     },

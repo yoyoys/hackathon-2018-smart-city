@@ -20,6 +20,9 @@
       border-top-width: 1px;
     }
   }
+  .flex.ibox-content {
+    flex-grow: 1;
+  }
 </style>
 
 <script lang="ts">
@@ -37,12 +40,17 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    flex: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     panelClass (): any {
       return {
         'no-padding': this.noPadding,
         'no-border': this.noBorder,
+        'flex': this.flex,
       }
     },
   },

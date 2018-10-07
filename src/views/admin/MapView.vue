@@ -11,7 +11,7 @@
         :position="getPosition(m)"
         :clickable="true"
         :draggable="true"
-        @click="center=getPosition(m)"
+        @click="onBuilding(m.buildingid)"
       )
   .col-lg-4.p-0
     SensorPanel.panel
@@ -50,6 +50,7 @@ export default Vue.extend({
     buildings (): IBuilding[] {
       return store.state.buildings
     },
+
   },
   methods: {
     getPosition (building: IBuilding): {lat: number, lng: number} {
@@ -58,9 +59,13 @@ export default Vue.extend({
         lng: building.longitude,
       }
     },
+
+    onBuilding (id: string) {
+      this.$router.push(`/admin/building/${id}`)
+    },
   },
   created () {
-    this.$store.dispatch('fetchBuilding')
+    // this.$store.dispatch('fetchBuilding')
   },
 })
 </script>

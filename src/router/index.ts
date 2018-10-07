@@ -28,7 +28,7 @@ export default new Router({
       component: DefaultLayout,
       children: [
         {
-          path: '',
+          path: 'map',
           name: 'MapView',
           component: MapView,
         },
@@ -39,7 +39,7 @@ export default new Router({
           props: true,
         },
         {
-          path: 'dashboard',
+          path: '',
           name: 'DashboardView',
           component: DashboardView,
         },
