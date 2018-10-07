@@ -64,8 +64,5 @@ export default Vue.extend({
       this.$router.push(`/admin/building/${id}`)
     },
   },
-  created () {
-    // this.$store.dispatch('fetchBuilding')
-  },
 })
 </script>

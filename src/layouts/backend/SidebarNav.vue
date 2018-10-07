@@ -46,8 +46,6 @@ export default Vue.extend({
     const menu = new MetisMenu(this.$el)
 
     menu.init()
-
-    // console.log($(this.$el), $(this.$el).metisMenu)
   },
 })
 </script>

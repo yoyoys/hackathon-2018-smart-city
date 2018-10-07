@@ -74,8 +74,5 @@ export default Vue.extend({
       this.$router.push(`/admin/map`)
     },
   },
-  created () {
-    // this.$store.dispatch('fetchBuilding')
-  },
 })
 </script>
