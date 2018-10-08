@@ -82,7 +82,7 @@ export default Vue.extend({
   },
   methods: {
     back () {
-      this.$router.push(`/admin/map`)
+      this.$router.push(`/map`)
     },
   },
 })

@@ -61,7 +61,7 @@ export default Vue.extend({
     },
 
     onBuilding (id: string) {
-      this.$router.push(`/admin/building/${id}`)
+      this.$router.push(`/building/${id}`)
     },
   },
 })
