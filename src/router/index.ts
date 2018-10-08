@@ -12,19 +12,19 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    // {
+    //   path: '/',
+    //   component: EmptyLayout,
+    //   children: [
+    //     {
+    //       path: '/',
+    //       name: 'home',
+    //       component: Home,
+    //     },
+    //   ],
+    // },
     {
       path: '/',
-      component: EmptyLayout,
-      children: [
-        {
-          path: '/',
-          name: 'home',
-          component: Home,
-        },
-      ],
-    },
-    {
-      path: '/admin',
       component: DefaultLayout,
       children: [
         {
