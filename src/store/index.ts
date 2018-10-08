@@ -5,7 +5,9 @@ import { IKeyAny } from '@/typings/helpers'
 
 Vue.use(Vuex)
 
-const apiRoot = 'https://76ulv2e62e.execute-api.ap-northeast-1.amazonaws.com/v1'
+// const apiRoot = 'https://76ulv2e62e.execute-api.ap-northeast-1.amazonaws.com/v1'
+const apiRoot = '/api'
+
 const state = {
   buildings: [] as IBuilding[],
   usage: [] as IUsage[],
@@ -28,7 +30,7 @@ export default new Vuex.Store({
   actions: {
     async fetchBuilding ({ commit }) {
       try {
-        const res = await Vue.axios.get(`${apiRoot}/building/list`)
+        const res = await Vue.axios.get(`${apiRoot}/building`)
 
         commit('updateBuildings', res.data)
       } catch (error) {
@@ -46,7 +48,7 @@ export default new Vuex.Store({
     },
     async fetchQuality ({ commit }) {
       try {
-        const res = await Vue.axios.get(`${apiRoot}/region/quality`)
+        const res = await Vue.axios.get(`${apiRoot}/quality`)
 
         commit('updateQuality', res.data)
       } catch (error) {

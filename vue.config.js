@@ -1,4 +1,6 @@
 const webpack = require('webpack')
+const jsonServer = require('json-server')
+const router = jsonServer.router('mockapi.json')
 
 module.exports = {
   baseUrl: './',
@@ -9,5 +11,10 @@ module.exports = {
       jquery: 'jquery',
       Popper: ['popper.js', 'default'],
     }) ],
+  },
+  devServer: {
+    before (server) {
+      server.use('/api', router)
+    },
   },
 }
