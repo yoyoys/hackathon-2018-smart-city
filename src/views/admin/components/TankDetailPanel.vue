@@ -26,7 +26,7 @@
     GroupAccrodian(
       label="Action"
     )
-      lable.d-inline-block.mt-2 Motor
+      label.d-inline-block.mt-2 Motor
       .switch
         .onoffswitch
           input#ex-1.onoffswitch-checkbox(type="checkbox" checked="")
